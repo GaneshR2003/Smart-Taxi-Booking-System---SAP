@@ -1,0 +1,36 @@
+@Metadata.layer: #CORE
+@UI: { 
+  headerInfo: { typeName: 'Taxi Booking', typeNamePlural: 'Taxi Bookings', title: { type: #STANDARD, value: 'BookingId' } } 
+}
+annotate view ZC_TAXI_BOOK with 
+{
+  @UI.facet: [ { id: 'Booking', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Booking Details', position: 10 } ]
+  
+  @EndUserText.label: 'Booking ID'
+  @UI: { lineItem: [ { position: 10 } ], identification: [ { position: 10 } ] }
+  BookingId;
+  
+  @EndUserText.label: 'Passenger Name'
+  @UI: { lineItem: [ { position: 20 } ], identification: [ { position: 20 } ] }
+  PassengerName;
+  
+  @EndUserText.label: 'Pickup Location'
+  @UI: { lineItem: [ { position: 30 } ], identification: [ { position: 30 } ] }
+  PickupLoc;
+  
+  @EndUserText.label: 'Drop-off Location'
+  @UI: { lineItem: [ { position: 40 } ], identification: [ { position: 40 } ] }
+  DropLoc;
+  
+  @EndUserText.label: 'Fare Amount'
+  @UI: { lineItem: [ { position: 50 } ], identification: [ { position: 50 } ] }
+  Fare;
+  
+  @EndUserText.label: 'Status (R, C, D, X)'
+  @UI: { lineItem: [ { position: 60, criticality: 'StatusCriticality' } ], 
+         identification: [ { position: 60, criticality: 'StatusCriticality' } ] }
+  Status;
+  
+  @UI.hidden: true
+  StatusCriticality;
+}

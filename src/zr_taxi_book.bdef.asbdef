@@ -1,0 +1,25 @@
+unmanaged implementation in class zbp_r_taxi_book unique;
+strict ( 2 );
+
+define behavior for ZR_TAXI_BOOK alias Booking
+lock master
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory ) BookingId;
+
+  // Map CDS field names back to the physical database table fields
+  mapping for ztaxi_book control ztaxi_book_x
+  {
+    BookingId = booking_id;
+    PassengerName = passenger_name;
+    PickupLoc = pickup_loc;
+    DropLoc = drop_loc;
+    Fare = fare;
+    Currency = currency;
+    Status = status;
+  }
+}
